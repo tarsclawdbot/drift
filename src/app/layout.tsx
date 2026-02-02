@@ -1,23 +1,31 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { DM_Sans, Space_Mono, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 
-const playfair = Playfair_Display({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  weight: ["400", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Drift — Break the Routine",
-  description: "A micro-adventure generator for when you're feeling stuck in the same patterns. Draw a card. Get a prompt. Shake up your day.",
+  title: "DRIFT — Postcards from the Unexpected",
+  description: "A collection of micro-adventures, creative prompts, and spontaneous activities. Break your routine, one card at a time.",
 };
 
 export default function RootLayout({
@@ -26,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="font-sans antialiased bg-slate-950">
+    <html lang="en" className={`${dmSans.variable} ${spaceMono.variable} ${bebasNeue.variable}`}>
+      <body className="antialiased min-h-screen">
         <Navigation />
         {children}
       </body>

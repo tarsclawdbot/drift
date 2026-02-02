@@ -7,7 +7,7 @@ import CategoryPicker from "@/components/CategoryPicker";
 import EffortToggle from "@/components/EffortToggle";
 import ShuffleButton from "@/components/ShuffleButton";
 import PromptCard from "@/components/PromptCard";
-import { savePrompt, unsavePrompt, isPromptSaved } from "@/lib/storage";
+import { savePrompt, unsavePrompt } from "@/lib/storage";
 
 interface Prompt {
   id: string;
@@ -25,7 +25,7 @@ export default function Home() {
   const [currentPrompt, setCurrentPrompt] = useState<Prompt | null>(null);
   const [isShuffling, setIsShuffling] = useState(false);
   const [savedIds, setSavedIds] = useState<string[]>([]);
-  const [showConfetti, setShowConfetti] = useState(false);
+  const [drawCount, setDrawCount] = useState(0);
 
   // Load saved prompts on mount
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function Home() {
 
     // Shuffle animation effect
     let count = 0;
-    const maxShuffles = 8;
+    const maxShuffles = 6;
     const interval = setInterval(() => {
       const randomPrompt = filtered[Math.floor(Math.random() * filtered.length)];
       setCurrentPrompt(randomPrompt);
@@ -70,10 +70,9 @@ export default function Home() {
         const finalPrompt = filtered[Math.floor(Math.random() * filtered.length)];
         setCurrentPrompt(finalPrompt);
         setIsShuffling(false);
-        setShowConfetti(true);
-        setTimeout(() => setShowConfetti(false), 1000);
+        setDrawCount(prev => prev + 1);
       }
-    }, 100);
+    }, 80);
   }, [getFilteredPrompts]);
 
   const handleSave = () => {
@@ -91,12 +90,12 @@ export default function Home() {
   const handleShare = async () => {
     if (!currentPrompt) return;
     
-    const text = `${currentPrompt.emoji} ${currentPrompt.text}\n\n— From Drift`;
+    const text = `${currentPrompt.emoji} ${currentPrompt.text}\n\n— from DRIFT`;
     
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Drift",
+          title: "DRIFT",
           text: text,
         });
       } catch {
@@ -109,53 +108,43 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 pt-24 pb-8 px-4">
-      {/* Confetti effect */}
-      <AnimatePresence>
-        {showConfetti && (
-          <div className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ 
-                  opacity: 1, 
-                  x: 0, 
-                  y: 0, 
-                  scale: 0,
-                  rotate: 0 
-                }}
-                animate={{ 
-                  opacity: 0, 
-                  x: (Math.random() - 0.5) * 400, 
-                  y: (Math.random() - 0.5) * 400,
-                  scale: Math.random() * 2 + 0.5,
-                  rotate: Math.random() * 720 
-                }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className="absolute w-3 h-3 rounded-full"
-                style={{
-                  background: ["#f472b6", "#a78bfa", "#22d3ee", "#fbbf24", "#34d399"][i % 5],
-                }}
-              />
-            ))}
-          </div>
-        )}
-      </AnimatePresence>
+    <main className="min-h-screen bg-[#f5f1e8] pt-24 pb-12 px-4">
+      {/* Background texture */}
+      <div className="fixed inset-0 pointer-events-none opacity-30">
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_24px,#d4c8b0_25px)] bg-[length:100%_25px]" />
+      </div>
 
-      <div className="max-w-4xl mx-auto">
-        {/* Hero text */}
+      <div className="max-w-3xl mx-auto relative">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-100 mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-            Break the Routine
+          {/* Postmark */}
+          <div className="flex justify-center mb-6">
+            <div className="postmark border-2 border-[#8a7a62] rounded-full px-4 py-2 text-[#8a7a62] text-xs uppercase tracking-[0.2em] font-mono transform -rotate-12">
+              {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+            </div>
+          </div>
+
+          <h1 
+            className="text-6xl md:text-8xl font-bold text-[#2c2419] mb-4 tracking-tight"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            DRIFT
           </h1>
-          <p className="text-slate-400 text-lg max-w-md mx-auto">
-            Draw a card. Get a micro-adventure. Shake up your day.
+          
+          <p className="text-[#5a5040] text-lg max-w-md mx-auto font-mono text-sm tracking-wide">
+            A collection of micro-adventures for the restless soul
           </p>
+
+          {/* Decorative line */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="h-px w-16 bg-[#c75b39]" />
+            <span className="text-[#c75b39] text-lg">✦</span>
+            <div className="h-px w-16 bg-[#c75b39]" />
+          </div>
         </motion.div>
 
         {/* Filters */}
@@ -163,7 +152,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="mb-8 space-y-4"
+          className="mb-10 space-y-4"
         >
           <CategoryPicker
             selected={selectedCategory}
@@ -180,13 +169,14 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-8"
+          className="mb-10"
         >
           <PromptCard
             prompt={currentPrompt}
             isSaved={currentPrompt ? savedIds.includes(currentPrompt.id) : false}
             onSave={handleSave}
             onShare={handleShare}
+            drawCount={drawCount}
           />
         </motion.div>
 
@@ -205,9 +195,12 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-16 text-slate-600 text-sm"
+          className="text-center mt-16 text-[#8a7a62] font-mono text-xs tracking-widest"
         >
-          <p>{prompts.length} adventures waiting for you</p>
+          <p>{prompts.length} ADVENTURES IN THE ARCHIVE</p>
+          {drawCount > 0 && (
+            <p className="mt-2 text-[#c75b39]">{drawCount} CARD{drawCount !== 1 ? 'S' : ''} DRAWN</p>
+          )}
         </motion.div>
       </div>
     </main>

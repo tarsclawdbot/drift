@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import promptsData from "@/data/prompts.json";
 import { getSavedPrompts, unsavePrompt } from "@/lib/storage";
-import { Trash2, Share2 } from "lucide-react";
+import { Share2, Trash2 } from "lucide-react";
 
 interface Prompt {
   id: string;
@@ -16,19 +16,19 @@ interface Prompt {
 
 const prompts: Prompt[] = promptsData;
 
-const categoryColors: Record<string, string> = {
-  creative: "from-pink-500 to-rose-500",
-  social: "from-cyan-500 to-blue-500",
-  outdoors: "from-emerald-500 to-teal-500",
-  learning: "from-amber-500 to-orange-500",
-  wellness: "from-violet-500 to-purple-500",
-  chaos: "from-red-500 to-pink-600",
+const effortLabels: Record<string, string> = {
+  quick: "QUICK",
+  committed: "DEEP",
+  fullsend: "ALL IN",
 };
 
-const effortLabels: Record<string, string> = {
-  quick: "⚡",
-  committed: "🔥",
-  fullsend: "🚀",
+const categoryIcons: Record<string, string> = {
+  creative: "◆",
+  social: "◈",
+  outdoors: "▲",
+  learning: "●",
+  wellness: "○",
+  chaos: "✶",
 };
 
 export default function SavedPage() {
@@ -49,12 +49,12 @@ export default function SavedPage() {
   };
 
   const handleShare = async (prompt: Prompt) => {
-    const text = `${prompt.emoji} ${prompt.text}\n\n— From Drift`;
+    const text = `${prompt.emoji} ${prompt.text}\n\n— from DRIFT`;
     
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Drift",
+          title: "DRIFT",
           text: text,
         });
       } catch {
@@ -67,19 +67,29 @@ export default function SavedPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 pt-24 pb-8 px-4">
+    <main className="min-h-screen bg-[#f5f1e8] pt-24 pb-12 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-100 mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-            Saved Drifts
+          <h1 
+            className="text-5xl md:text-6xl font-bold text-[#2c2419] mb-4"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            ARCHIVE
           </h1>
-          <p className="text-slate-400 text-lg">
-            Your collection of adventures waiting to happen
+          <p className="text-[#5a5040] font-mono text-sm tracking-widest">
+            YOUR COLLECTED ADVENTURES
           </p>
+          
+          {/* Decorative line */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="h-px w-12 bg-[#c75b39]" />
+            <span className="text-[#c75b39]">✦</span>
+            <div className="h-px w-12 bg-[#c75b39]" />
+          </div>
         </motion.div>
 
         {savedPrompts.length === 0 ? (
@@ -88,15 +98,18 @@ export default function SavedPage() {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <p className="text-slate-500 text-lg mb-4">No saved drifts yet</p>
-            <p className="text-slate-600">
-              Go back home and draw some cards you love!
+            <div className="text-6xl mb-4 opacity-20">✦</div>
+            <p className="text-[#5a5040] font-mono text-sm tracking-widest mb-2">
+              NO SAVED CARDS
+            </p>
+            <p className="text-[#8a7a62] text-sm">
+              Draw some cards and archive your favorites
             </p>
           </motion.div>
         ) : (
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {savedPrompts.map((prompt, index) => {
-              const gradient = categoryColors[prompt.category] || "from-slate-500 to-slate-600";
+              const rotation = ((index % 5) - 2) * 0.5;
               return (
                 <motion.div
                   key={prompt.id}
@@ -104,38 +117,44 @@ export default function SavedPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                   className="relative group"
+                  style={{ transform: `rotate(${rotation}deg)` }}
                 >
-                  <div className={`absolute -inset-0.5 bg-gradient-to-br ${gradient} opacity-10 group-hover:opacity-30 blur rounded-2xl transition-opacity`} />
-                  <div className="relative p-6 rounded-2xl bg-slate-900/80 border border-slate-800 h-full flex flex-col">
-                    <div className="flex items-start justify-between mb-3">
-                      <span className="text-3xl">{prompt.emoji}</span>
-                      <span className="text-lg" title={prompt.effort}>
-                        {effortLabels[prompt.effort]}
-                      </span>
+                  <div className="bg-[#faf8f3] p-3 pb-4 shadow-[6px_6px_0_0_#d4c8b0] border border-[#d4c8b0]">
+                    <div className="bg-[#2c2419] p-4 aspect-[4/3] flex flex-col justify-between">
+                      <div className="flex items-start justify-between">
+                        <span className="text-2xl">{prompt.emoji}</span>
+                        <span className="text-[10px] font-mono text-[#a09078] tracking-wider">
+                          {effortLabels[prompt.effort]}
+                        </span>
+                      </div>
+                      
+                      <p className="text-[#f5f1e8] text-sm leading-relaxed">
+                        {prompt.text}
+                      </p>
+                      
+                      <div className="flex items-center justify-between pt-2">
+                        <span className="text-[#a09078] text-xs font-mono">
+                          {categoryIcons[prompt.category]} {prompt.category}
+                        </span>
+                      </div>
                     </div>
                     
-                    <p className="text-slate-200 mb-4 flex-grow" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-                      {prompt.text}
-                    </p>
-                    
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-                      <span className="text-xs text-slate-500 uppercase tracking-wider">
-                        {prompt.category}
-                      </span>
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => handleShare(prompt)}
-                          className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-cyan-400 hover:bg-slate-700 transition-colors"
-                        >
-                          <Share2 className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleUnsave(prompt.id)}
-                          className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-red-400 hover:bg-slate-700 transition-colors"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
+                    {/* Actions */}
+                    <div className="flex gap-2 mt-3">
+                      <button
+                        onClick={() => handleShare(prompt)}
+                        className="flex-1 py-2 border border-[#d4c8b0] text-[#5a5040] hover:border-[#c9a227] hover:text-[#c9a227] transition-colors font-mono text-xs tracking-wider"
+                      >
+                        <Share2 className="w-3 h-3 inline mr-1" />
+                        SHARE
+                      </button>
+                      <button
+                        onClick={() => handleUnsave(prompt.id)}
+                        className="flex-1 py-2 border border-[#d4c8b0] text-[#5a5040] hover:border-[#c75b39] hover:text-[#c75b39] transition-colors font-mono text-xs tracking-wider"
+                      >
+                        <Trash2 className="w-3 h-3 inline mr-1" />
+                        REMOVE
+                      </button>
                     </div>
                   </div>
                 </motion.div>
@@ -143,6 +162,16 @@ export default function SavedPage() {
             })}
           </div>
         )}
+
+        {/* Count footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-center mt-12 text-[#8a7a62] font-mono text-xs tracking-widest"
+        >
+          <p>{savedPrompts.length} CARD{savedPrompts.length !== 1 ? 'S' : ''} ARCHIVED</p>
+        </motion.div>
       </div>
     </main>
   );

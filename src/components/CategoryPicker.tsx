@@ -8,13 +8,13 @@ interface CategoryPickerProps {
 }
 
 const categories = [
-  { id: "all", label: "All", emoji: "✨" },
-  { id: "creative", label: "Creative", emoji: "🎨" },
-  { id: "social", label: "Social", emoji: "💬" },
-  { id: "outdoors", label: "Outdoors", emoji: "🌲" },
-  { id: "learning", label: "Learning", emoji: "📚" },
-  { id: "wellness", label: "Wellness", emoji: "🧘" },
-  { id: "chaos", label: "Chaos", emoji: "🔥" },
+  { id: "all", label: "ALL", emoji: "✦" },
+  { id: "creative", label: "CREATIVE", emoji: "◆" },
+  { id: "social", label: "SOCIAL", emoji: "◈" },
+  { id: "outdoors", label: "OUTDOORS", emoji: "▲" },
+  { id: "learning", label: "LEARNING", emoji: "●" },
+  { id: "wellness", label: "WELLNESS", emoji: "○" },
+  { id: "chaos", label: "CHAOS", emoji: "✶" },
 ];
 
 export default function CategoryPicker({ selected, onSelect }: CategoryPickerProps) {
@@ -24,19 +24,26 @@ export default function CategoryPicker({ selected, onSelect }: CategoryPickerPro
         <motion.button
           key={cat.id}
           onClick={() => onSelect(cat.id)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.02, y: -1 }}
+          whileTap={{ scale: 0.98 }}
           className={`
-            px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
-            border backdrop-blur-sm
+            px-4 py-2 text-xs font-mono tracking-[0.15em] transition-all duration-200
+            border-2 relative overflow-hidden
             ${selected === cat.id
-              ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white border-transparent shadow-lg shadow-orange-500/25"
-              : "bg-slate-800/50 text-slate-300 border-slate-700 hover:border-slate-500 hover:bg-slate-700/50"
+              ? "bg-[#2c2419] text-[#f5f1e8] border-[#2c2419]"
+              : "bg-transparent text-[#5a5040] border-[#d4c8b0] hover:border-[#8a7a62] hover:text-[#2c2419]"
             }
           `}
         >
-          <span className="mr-1">{cat.emoji}</span>
+          <span className="mr-1.5 opacity-70">{cat.emoji}</span>
           {cat.label}
+          {selected === cat.id && (
+            <motion.div
+              layoutId="category-active"
+              className="absolute inset-0 bg-[#2c2419] -z-10"
+              transition={{ type: "spring", duration: 0.4 }}
+            />
+          )}
         </motion.button>
       ))}
     </div>

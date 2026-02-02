@@ -1,23 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Compass, Heart, Sparkles, Users } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-slate-950 pt-24 pb-8 px-4">
+    <main className="min-h-screen bg-[#f5f1e8] pt-24 pb-12 px-4">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 mb-6">
-            <Compass className="w-8 h-8 text-white" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-100 mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-            About Drift
+          <h1 
+            className="text-5xl md:text-6xl font-bold text-[#2c2419] mb-4"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            ABOUT
           </h1>
+          
+          {/* Decorative stamp */}
+          <div className="flex justify-center mt-4">
+            <div className="border-2 border-dashed border-[#c75b39] px-4 py-1 transform -rotate-3">
+              <span className="text-[#c75b39] font-mono text-xs tracking-[0.2em]">
+                EST. 2026
+              </span>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
@@ -26,83 +34,94 @@ export default function AboutPage() {
           transition={{ delay: 0.1 }}
           className="space-y-8"
         >
-          <section className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-            <h2 className="text-xl font-bold text-slate-100 mb-3 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-amber-400" />
-              The Problem
+          {/* Manifesto card */}
+          <div className="bg-[#faf8f3] p-8 shadow-[8px_8px_0_0_#d4c8b0] border border-[#d4c8b0]">
+            <h2 className="font-mono text-xs tracking-[0.2em] text-[#8a7a62] mb-4">
+              THE PROBLEM
             </h2>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-[#2c2419] text-lg leading-relaxed mb-4">
               Modern life is predictable. We fall into patterns — same routes, same restaurants, 
-              same activities. This leads to monotony and the feeling that time is slipping away. 
-              We crave novelty but decision fatigue makes it hard to think of new things to do.
+              same routines. Time starts to blur together.
             </p>
-          </section>
-
-          <section className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-            <h2 className="text-xl font-bold text-slate-100 mb-3 flex items-center gap-2">
-              <Heart className="w-5 h-5 text-pink-400" />
-              The Solution
-            </h2>
-            <p className="text-slate-400 leading-relaxed">
-              Drift removes the friction of deciding "what should I do?" by giving you beautifully 
-              presented random prompts. Just open the app, pick your vibe, and get a fresh micro-adventure. 
-              No overthinking. Just drift.
+            <p className="text-[#5a5040] leading-relaxed">
+              We crave novelty but decision fatigue makes it hard to think of new things to do. 
+              The spark of spontaneity fades into the background.
             </p>
-          </section>
+          </div>
 
-          <section className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-            <h2 className="text-xl font-bold text-slate-100 mb-3 flex items-center gap-2">
-              <Users className="w-5 h-5 text-cyan-400" />
-              How It Works
+          <div className="bg-[#2c2419] p-8 shadow-[8px_8px_0_0_#c75b39] text-[#f5f1e8]">
+            <h2 className="font-mono text-xs tracking-[0.2em] text-[#c75b39] mb-4">
+              THE SOLUTION
             </h2>
-            <ul className="space-y-3 text-slate-400">
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center text-sm text-slate-300">1</span>
-                <span>Choose a category or go wild with "All"</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center text-sm text-slate-300">2</span>
-                <span>Select your effort level — quick, committed, or full send</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center text-sm text-slate-300">3</span>
-                <span>Draw a card and embrace the adventure</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center text-sm text-slate-300">4</span>
-                <span>Save your favorites, share with friends</span>
-              </li>
-            </ul>
-          </section>
+            <p className="text-xl leading-relaxed mb-4" style={{ fontFamily: 'var(--font-sans)' }}>
+              DRIFT removes the friction of deciding "what should I do?"
+            </p>
+            <p className="text-[#a09078] leading-relaxed">
+              Each card is a small portal to something unexpected. A micro-adventure, 
+              a creative prompt, a moment of spontaneity. You don't choose — 
+              you simply draw, and let chance guide you.
+            </p>
+          </div>
 
-          <section className="p-6 rounded-2xl bg-gradient-to-br from-violet-900/30 to-fuchsia-900/30 border border-violet-800/30">
-            <h2 className="text-xl font-bold text-slate-100 mb-3">
-              Categories
+          {/* Categories */}
+          <div className="bg-[#faf8f3] p-8 shadow-[8px_8px_0_0_#d4c8b0] border border-[#d4c8b0]">
+            <h2 className="font-mono text-xs tracking-[0.2em] text-[#8a7a62] mb-6">
+              THE CATEGORIES
             </h2>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="flex items-center gap-2 text-slate-300">
-                <span>🎨</span> Creative
-              </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span>💬</span> Social
-              </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span>🌲</span> Outdoors
-              </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span>📚</span> Learning
-              </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span>🧘</span> Wellness
-              </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span>🔥</span> Chaos
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { icon: "◆", name: "CREATIVE", desc: "Art, writing, making" },
+                { icon: "◈", name: "SOCIAL", desc: "Connection, people" },
+                { icon: "▲", name: "OUTDOORS", desc: "Nature, exploration" },
+                { icon: "●", name: "LEARNING", desc: "Skills, knowledge" },
+                { icon: "○", name: "WELLNESS", desc: "Mind, body, rest" },
+                { icon: "✶", name: "CHAOS", desc: "The unexpected" },
+              ].map((cat) => (
+                <div key={cat.name} className="text-center p-3 border border-[#e0d8c8]">
+                  <div className="text-2xl mb-1">{cat.icon}</div>
+                  <div className="font-mono text-xs tracking-wider text-[#2c2419]">{cat.name}</div>
+                  <div className="text-[10px] text-[#8a7a62]">{cat.desc}</div>
+                </div>
+              ))}
             </div>
-          </section>
+          </div>
 
-          <div className="text-center pt-8 text-slate-500 text-sm">
-            <p>Built with 💜 for the routine-breakers</p>
+          {/* Effort levels */}
+          <div className="flex justify-center gap-4">
+            <div className="text-center">
+              <div className="w-16 h-16 border-2 border-[#3d5a4a] flex items-center justify-center mb-2">
+                <span className="font-mono text-xs text-[#3d5a4a] tracking-wider">5-15<br/>MIN</span>
+              </div>
+              <span className="font-mono text-xs text-[#8a7a62]">QUICK</span>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 border-2 border-[#c9a227] flex items-center justify-center mb-2">
+                <span className="font-mono text-xs text-[#c9a227] tracking-wider">30-60<br/>MIN</span>
+              </div>
+              <span className="font-mono text-xs text-[#8a7a62]">DEEP</span>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 border-2 border-[#c75b39] flex items-center justify-center mb-2">
+                <span className="font-mono text-xs text-[#c75b39] tracking-wider">2+<br/>HR</span>
+              </div>
+              <span className="font-mono text-xs text-[#8a7a62]">ALL IN</span>
+            </div>
+          </div>
+
+          {/* Quote */}
+          <div className="text-center py-8 border-t border-b border-[#d4c8b0]">
+            <p className="text-xl text-[#2c2419] italic mb-4" style={{ fontFamily: 'var(--font-sans)' }}>
+              "Not all those who wander are lost."
+            </p>
+            <p className="font-mono text-xs text-[#8a7a62] tracking-widest">
+              — J.R.R. TOLKIEN
+            </p>
+          </div>
+
+          {/* Footer */}
+          <div className="text-center text-[#8a7a62] font-mono text-xs tracking-widest">
+            <p>BUILT FOR THE RESTLESS</p>
+            <p className="mt-2 text-[#c75b39]">✦</p>
           </div>
         </motion.div>
       </div>

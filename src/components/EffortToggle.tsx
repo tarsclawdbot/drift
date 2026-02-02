@@ -8,15 +8,15 @@ interface EffortToggleProps {
 }
 
 const efforts = [
-  { id: "all", label: "Any", description: "Mix it up" },
-  { id: "quick", label: "Quick", description: "5-15 min" },
-  { id: "committed", label: "Committed", description: "30-60 min" },
-  { id: "fullsend", label: "Full Send", description: "2+ hours" },
+  { id: "all", label: "ANY", description: "" },
+  { id: "quick", label: "QUICK", description: "5-15 MIN" },
+  { id: "committed", label: "DEEP", description: "30-60 MIN" },
+  { id: "fullsend", label: "ALL IN", description: "2+ HOURS" },
 ];
 
 export default function EffortToggle({ selected, onSelect }: EffortToggleProps) {
   return (
-    <div className="flex justify-center gap-2 px-4">
+    <div className="flex justify-center gap-1 px-4">
       {efforts.map((effort) => (
         <motion.button
           key={effort.id}
@@ -24,20 +24,22 @@ export default function EffortToggle({ selected, onSelect }: EffortToggleProps) 
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className={`
-            flex flex-col items-center px-4 py-3 rounded-xl transition-all duration-300
-            border min-w-[80px]
+            flex flex-col items-center px-5 py-3 transition-all duration-200
+            border-2 min-w-[90px] relative
             ${selected === effort.id
-              ? "bg-slate-700/80 border-cyan-400/50 shadow-lg shadow-cyan-500/10"
-              : "bg-slate-800/30 border-slate-700/50 hover:border-slate-600"
+              ? "bg-[#c75b39]/10 border-[#c75b39] text-[#c75b39]"
+              : "bg-transparent border-[#d4c8b0] text-[#5a5040] hover:border-[#8a7a62]"
             }
           `}
         >
-          <span className={`text-sm font-semibold ${selected === effort.id ? "text-cyan-300" : "text-slate-300"}`}>
+          <span className={`text-xs font-bold tracking-[0.1em] ${selected === effort.id ? "text-[#c75b39]" : ""}`}>
             {effort.label}
           </span>
-          <span className="text-xs text-slate-500 mt-0.5">
-            {effort.description}
-          </span>
+          {effort.description && (
+            <span className="text-[10px] font-mono tracking-wider opacity-60 mt-0.5">
+              {effort.description}
+            </span>
+          )}
         </motion.button>
       ))}
     </div>

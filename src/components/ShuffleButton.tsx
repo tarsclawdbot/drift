@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
 
 interface ShuffleButtonProps {
   onClick: () => void;
@@ -13,31 +12,35 @@ export default function ShuffleButton({ onClick, isShuffling }: ShuffleButtonPro
     <motion.button
       onClick={onClick}
       disabled={isShuffling}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={{ scale: 1.01, y: -2 }}
+      whileTap={{ scale: 0.99 }}
       className="
         relative overflow-hidden
-        px-8 py-4 rounded-2xl
-        bg-gradient-to-r from-violet-600 via-fuchsia-600 to-pink-600
-        text-white font-bold text-lg
-        shadow-xl shadow-fuchsia-500/25
-        disabled:opacity-70 disabled:cursor-not-allowed
-        transition-all duration-300
+        px-12 py-5
+        bg-[#2c2419] text-[#f5f1e8]
+        font-mono text-sm tracking-[0.2em]
+        border-4 border-[#2c2419]
+        disabled:opacity-60 disabled:cursor-not-allowed
+        transition-all duration-200
         group
+        shadow-[8px_8px_0_0_#d4c8b0]
+        hover:shadow-[4px_4px_0_0_#d4c8b0]
+        hover:translate-x-1 hover:translate-y-1
       "
     >
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-pink-600 via-fuchsia-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-      />
-      <span className="relative flex items-center gap-2">
+      <span className="relative flex items-center gap-3">
         <motion.span
           animate={isShuffling ? { rotate: 360 } : { rotate: 0 }}
-          transition={{ duration: 1, repeat: isShuffling ? Infinity : 0, ease: "linear" }}
+          transition={{ duration: 0.8, repeat: isShuffling ? Infinity : 0, ease: "linear" }}
+          className="text-lg"
         >
-          <Sparkles className="w-5 h-5" />
+          ✦
         </motion.span>
-        {isShuffling ? "Drawing..." : "Draw a Card"}
+        {isShuffling ? "DRAWING..." : "DRAW CARD"}
       </span>
+      
+      {/* Ink bleed effect on hover */}
+      <div className="absolute inset-0 bg-[#c75b39] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
     </motion.button>
   );
 }
