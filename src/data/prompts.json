@@ -1,0 +1,422 @@
+[
+  {
+    "id": "1",
+    "text": "Walk to the nearest body of water. Sit for 5 minutes and just listen.",
+    "category": "outdoors",
+    "effort": "quick",
+    "emoji": "🌊"
+  },
+  {
+    "id": "2",
+    "text": "Text someone you haven't talked to in 3+ months. Just say hi and ask how they're doing.",
+    "category": "social",
+    "effort": "quick",
+    "emoji": "💬"
+  },
+  {
+    "id": "3",
+    "text": "Order something you've never tried at a restaurant you've never been to.",
+    "category": "chaos",
+    "effort": "committed",
+    "emoji": "🍜"
+  },
+  {
+    "id": "4",
+    "text": "Take 10 photos of interesting shadows in your neighborhood.",
+    "category": "creative",
+    "effort": "quick",
+    "emoji": "📸"
+  },
+  {
+    "id": "5",
+    "text": "Learn 5 phrases in a language you don't speak. Use them in a sentence.",
+    "category": "learning",
+    "effort": "quick",
+    "emoji": "🗣️"
+  },
+  {
+    "id": "6",
+    "text": "Write a letter to your future self, 1 year from now. Seal it and put it somewhere safe.",
+    "category": "creative",
+    "effort": "committed",
+    "emoji": "✉️"
+  },
+  {
+    "id": "7",
+    "text": "Find a bench with a view. People watch for 15 minutes without your phone.",
+    "category": "outdoors",
+    "effort": "quick",
+    "emoji": "🪑"
+  },
+  {
+    "id": "8",
+    "text": "Cook a dish from a country you've never visited. Look up the recipe and go shopping for ingredients.",
+    "category": "learning",
+    "effort": "fullsend",
+    "emoji": "🍳"
+  },
+  {
+    "id": "9",
+    "text": "Give 3 genuine compliments to strangers today. Make them specific.",
+    "category": "social",
+    "effort": "committed",
+    "emoji": "💐"
+  },
+  {
+    "id": "10",
+    "text": "Go somewhere within 10 miles you've never been. Explore for 1 hour with no agenda.",
+    "category": "outdoors",
+    "effort": "fullsend",
+    "emoji": "🗺️"
+  },
+  {
+    "id": "11",
+    "text": "Draw something without lifting your pen from the paper. Keep going for 5 minutes.",
+    "category": "creative",
+    "effort": "quick",
+    "emoji": "✏️"
+  },
+  {
+    "id": "12",
+    "text": "Listen to an entire album from start to finish. Do nothing else while it plays.",
+    "category": "wellness",
+    "effort": "committed",
+    "emoji": "🎧"
+  },
+  {
+    "id": "13",
+    "text": "Call a family member you don't talk to enough. Have a real conversation.",
+    "category": "social",
+    "effort": "quick",
+    "emoji": "📞"
+  },
+  {
+    "id": "14",
+    "text": "Spend 20 minutes stretching or doing yoga. Focus only on your breathing.",
+    "category": "wellness",
+    "effort": "quick",
+    "emoji": "🧘"
+  },
+  {
+    "id": "15",
+    "text": "Write down 10 things you're grateful for. Be specific—no generic answers.",
+    "category": "wellness",
+    "effort": "quick",
+    "emoji": "🙏"
+  },
+  {
+    "id": "16",
+    "text": "Watch a documentary about something you know nothing about.",
+    "category": "learning",
+    "effort": "fullsend",
+    "emoji": "📺"
+  },
+  {
+    "id": "17",
+    "text": "Go to a bookstore or library. Pick a book at random and read the first chapter.",
+    "category": "learning",
+    "effort": "committed",
+    "emoji": "📚"
+  },
+  {
+    "id": "18",
+    "text": "Take a different route home today. Notice 3 new things along the way.",
+    "category": "outdoors",
+    "effort": "quick",
+    "emoji": "🚶"
+  },
+  {
+    "id": "19",
+    "text": "Write a short story in exactly 50 words. No more, no less.",
+    "category": "creative",
+    "effort": "quick",
+    "emoji": "📝"
+  },
+  {
+    "id": "20",
+    "text": "Buy a coffee for the person behind you in line. Or just give $5 to a stranger.",
+    "category": "social",
+    "effort": "quick",
+    "emoji": "☕"
+  },
+  {
+    "id": "21",
+    "text": "Spend 30 minutes learning the basics of a skill you've always wanted to try.",
+    "category": "learning",
+    "effort": "committed",
+    "emoji": "🎯"
+  },
+  {
+    "id": "22",
+    "text": "Go for a walk at sunrise or sunset. Take 5 photos of the changing light.",
+    "category": "outdoors",
+    "effort": "committed",
+    "emoji": "🌅"
+  },
+  {
+    "id": "23",
+    "text": "Host a dinner party for 4-6 friends. Cook everything from scratch.",
+    "category": "social",
+    "effort": "fullsend",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "24",
+    "text": "Try a meditation app for the first time. Do a 10-minute session.",
+    "category": "wellness",
+    "effort": "quick",
+    "emoji": "🧠"
+  },
+  {
+    "id": "25",
+    "text": "Make a playlist of 10 songs that represent your life right now.",
+    "category": "creative",
+    "effort": "committed",
+    "emoji": "🎵"
+  },
+  {
+    "id": "26",
+    "text": "Write a thank you note to someone who helped you years ago. Mail it.",
+    "category": "social",
+    "effort": "quick",
+    "emoji": "💌"
+  },
+  {
+    "id": "27",
+    "text": "Visit a museum or gallery you've never been to. Spend at least an hour there.",
+    "category": "learning",
+    "effort": "fullsend",
+    "emoji": "🖼️"
+  },
+  {
+    "id": "28",
+    "text": "Go stargazing. Find 3 constellations you can identify.",
+    "category": "outdoors",
+    "effort": "committed",
+    "emoji": "⭐"
+  },
+  {
+    "id": "29",
+    "text": "Spend an hour in nature without any technology. Just observe.",
+    "category": "wellness",
+    "effort": "committed",
+    "emoji": "🌲"
+  },
+  {
+    "id": "30",
+    "text": "Learn the choreography to a music video. Perform it in your living room.",
+    "category": "chaos",
+    "effort": "fullsend",
+    "emoji": "💃"
+  },
+  {
+    "id": "31",
+    "text": "Make a meal using only ingredients you already have. Get creative.",
+    "category": "creative",
+    "effort": "committed",
+    "emoji": "🥘"
+  },
+  {
+    "id": "32",
+    "text": "Attend a meetup or event for a hobby you're curious about.",
+    "category": "social",
+    "effort": "fullsend",
+    "emoji": "🤝"
+  },
+  {
+    "id": "33",
+    "text": "Take a cold shower. Stay in for at least 30 seconds.",
+    "category": "wellness",
+    "effort": "quick",
+    "emoji": "🚿"
+  },
+  {
+    "id": "34",
+    "text": "Research your family history. Find one interesting story from 3 generations back.",
+    "category": "learning",
+    "effort": "committed",
+    "emoji": "🌳"
+  },
+  {
+    "id": "35",
+    "text": "Go to a park and swing on the swings. Stay for at least 5 minutes.",
+    "category": "outdoors",
+    "effort": "quick",
+    "emoji": "🎢"
+  },
+  {
+    "id": "36",
+    "text": "Write a poem about your day. It doesn't have to rhyme.",
+    "category": "creative",
+    "effort": "quick",
+    "emoji": "🎭"
+  },
+  {
+    "id": "37",
+    "text": "Have a conversation with a stranger. Learn one thing about them.",
+    "category": "social",
+    "effort": "quick",
+    "emoji": "🗨️"
+  },
+  {
+    "id": "38",
+    "text": "Try a new form of exercise you've never done before.",
+    "category": "wellness",
+    "effort": "fullsend",
+    "emoji": "🏋️"
+  },
+  {
+    "id": "39",
+    "text": "Watch a movie in a language you don't speak. No subtitles allowed.",
+    "category": "learning",
+    "effort": "fullsend",
+    "emoji": "🎬"
+  },
+  {
+    "id": "40",
+    "text": "Go to a restaurant alone. Sit at the bar and order something adventurous.",
+    "category": "chaos",
+    "effort": "committed",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "41",
+    "text": "Create something with your hands: origami, clay, knitting, anything.",
+    "category": "creative",
+    "effort": "committed",
+    "emoji": "🎨"
+  },
+  {
+    "id": "42",
+    "text": "Delete 3 apps from your phone that you don't need.",
+    "category": "wellness",
+    "effort": "quick",
+    "emoji": "📱"
+  },
+  {
+    "id": "43",
+    "text": "Plan a surprise for someone you care about. Execute it today.",
+    "category": "social",
+    "effort": "committed",
+    "emoji": "🎁"
+  },
+  {
+    "id": "44",
+    "text": "Read 20 pages of a book you've been meaning to start.",
+    "category": "learning",
+    "effort": "quick",
+    "emoji": "📖"
+  },
+  {
+    "id": "45",
+    "text": "Go for a bike ride to somewhere you've never been.",
+    "category": "outdoors",
+    "effort": "committed",
+    "emoji": "🚴"
+  },
+  {
+    "id": "46",
+    "text": "Journal for 15 minutes without stopping. Write whatever comes to mind.",
+    "category": "wellness",
+    "effort": "quick",
+    "emoji": "📓"
+  },
+  {
+    "id": "47",
+    "text": "Learn to solve a Rubik's cube. Spend an hour on it.",
+    "category": "learning",
+    "effort": "fullsend",
+    "emoji": "🎲"
+  },
+  {
+    "id": "48",
+    "text": "Make a collage from old magazines or printed photos.",
+    "category": "creative",
+    "effort": "committed",
+    "emoji": "✂️"
+  },
+  {
+    "id": "49",
+    "text": "Volunteer for 2 hours at a local organization.",
+    "category": "social",
+    "effort": "fullsend",
+    "emoji": "❤️"
+  },
+  {
+    "id": "50",
+    "text": "Wake up 30 minutes earlier than usual. Use that time for yourself.",
+    "category": "wellness",
+    "effort": "quick",
+    "emoji": "⏰"
+  },
+  {
+    "id": "51",
+    "text": "Learn to juggle. Practice for 20 minutes.",
+    "category": "learning",
+    "effort": "quick",
+    "emoji": "🤹"
+  },
+  {
+    "id": "52",
+    "text": "Go to a thrift store and buy something weird or interesting.",
+    "category": "chaos",
+    "effort": "committed",
+    "emoji": "🛍️"
+  },
+  {
+    "id": "53",
+    "text": "Spend an afternoon at a botanical garden or arboretum.",
+    "category": "outdoors",
+    "effort": "fullsend",
+    "emoji": "🌺"
+  },
+  {
+    "id": "54",
+    "text": "Write a letter to your younger self. What do you wish they knew?",
+    "category": "creative",
+    "effort": "committed",
+    "emoji": "📜"
+  },
+  {
+    "id": "55",
+    "text": "Try to make someone laugh today. Use your best material.",
+    "category": "social",
+    "effort": "quick",
+    "emoji": "😂"
+  },
+  {
+    "id": "56",
+    "text": "Take a nap in a hammock or on grass under a tree.",
+    "category": "wellness",
+    "effort": "quick",
+    "emoji": "😴"
+  },
+  {
+    "id": "57",
+    "text": "Visit a place of worship different from your own or one you've never been to.",
+    "category": "learning",
+    "effort": "committed",
+    "emoji": "⛪"
+  },
+  {
+    "id": "58",
+    "text": "Do something that scares you just a little bit today.",
+    "category": "chaos",
+    "effort": "quick",
+    "emoji": "😱"
+  },
+  {
+    "id": "59",
+    "text": "Cook breakfast for dinner. Pancakes at 8 PM.",
+    "category": "chaos",
+    "effort": "committed",
+    "emoji": "🥞"
+  },
+  {
+    "id": "60",
+    "text": "Build a blanket fort. Read a book inside it.",
+    "category": "creative",
+    "effort": "committed",
+    "emoji": "🏰"
+  }
+]
